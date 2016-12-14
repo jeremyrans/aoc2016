@@ -7,7 +7,6 @@ salt = "ngcjuoqr"
 triplets_re = re.compile(r'(([a-zA-Z0-9])\2\2)')
 key_count = 0
 index_hashes = {}
-hash_hashes = {}
 
 
 def get_triplets(hash):
@@ -21,9 +20,7 @@ def has_5x_repeating(hash, char):
 def hash_lots(to_hash, i):
     result = md5('{}{}'.format(to_hash, i)).hexdigest()
     for _ in xrange(2016):
-        prev = result
-        result = hash_hashes[result] if result in hash_hashes else md5(prev).hexdigest()
-        hash_hashes[prev] = result
+        result = md5(result).hexdigest()
     return result
 
 
