@@ -1,4 +1,4 @@
-lines = [l.strip() for l in open('input.txt').readlines()]
+lines = [l.strip() for l in open('input_2.txt').readlines()]
 
 registers = {
     'a': 12,
